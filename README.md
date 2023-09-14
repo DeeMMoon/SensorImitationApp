@@ -2,7 +2,8 @@
 
 ## About Project
 
-A project using REST API. Simulation of the operation of an IoT server. The server registers weather sensors, saves them to the database and returns measurement results. A temperature diagram is also plotted.
+This pet-project using REST API. 
+Simulation of the operation of an IoT server. The server registers weather sensors, saves them to the database and returns measurement results. A temperature diagram is also plotted.
 ## Stack
 
 -  Spring
