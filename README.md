@@ -13,7 +13,7 @@ Simulation of the operation of an IoT server. The server registers weather senso
 ## API
 
 -  POST
-    - /sensors/registration - Кegistering a new sensor
+    - /sensors/registration - Registering a new sensor
     - /measurements/add - Adding new weather data received from the sensor
 -  GET
     - /measurements - Getting all the weather data
