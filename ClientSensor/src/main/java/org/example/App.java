@@ -96,9 +96,8 @@ public class App
         Random random = new Random();
         double min = -30.0;
         double max = 30.0;
-        double temperature =  min + (max - min) * random.nextDouble();
         for (int i = 0; i < count; i++){
-            sendMeasurement(sensorName, temperature, random.nextBoolean());
+            sendMeasurement(sensorName, min + (max - min) * random.nextDouble(), random.nextBoolean());
         }
     }
 
