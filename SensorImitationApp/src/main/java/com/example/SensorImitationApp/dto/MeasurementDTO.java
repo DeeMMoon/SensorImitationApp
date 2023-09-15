@@ -9,16 +9,16 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class MeasurementDTO {
-    @NotEmpty()
+    @NotNull()
     @Min(value = -100, message = "Value can't be less -100")
     @Max(value = 100, message = "Value can't be more 100")
     private Double value;
 
-    @NotEmpty()
-    private Boolean isRaining;
+    @NotNull
+    private Boolean raining;
 
     @NotNull
-    private LocalDateTime dateTime;
+    private SensorDTO sensor;
 
     public Double getValue() {
         return value;
@@ -28,19 +28,19 @@ public class MeasurementDTO {
         this.value = value;
     }
 
-    public Boolean getRaining() {
-        return isRaining;
+    public Boolean isRaining() {
+        return raining;
     }
 
     public void setRaining(Boolean raining) {
-        isRaining = raining;
+        this.raining = raining;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public SensorDTO getSensor() {
+        return sensor;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setSensor(SensorDTO sensor) {
+        this.sensor = sensor;
     }
 }

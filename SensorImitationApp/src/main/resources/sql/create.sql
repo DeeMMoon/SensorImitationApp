@@ -8,5 +8,9 @@ CREATE TABLE Measurement(
     value double precision not null,
     raining boolean not null,
     date_time timestamp not null,
-    sensor_id int references Sensor(id)
+    sensor varchar(100) references Sensor(name)
 );
+
+DROP TABLE measurement,sensor CASCADE;
+
+TRUNCATE measurement, sensor;

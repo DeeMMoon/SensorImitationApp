@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -46,11 +47,11 @@ public class MeasurementController {
 
     @GetMapping("/rainyDaysCount")
     public Long getCountRainyDays(){
-        return measurementService.fidAll().stream().filter(Measurement::getRaining).count();
+        return measurementService.fidAll().stream().filter(Measurement::isRaining).count();
     }
 
     @PostMapping("/add")
-    public ResponseEntity<HttpStatus> add(@RequestBody @Valid MeasurementDTO measurementDTO, BindingResult bindingResult){
+    public ResponseEntity<HttpStatus> add(@RequestBody @Validated MeasurementDTO measurementDTO, BindingResult bindingResult){
         Measurement measurement = measurementConverter(measurementDTO);
         measurementValidator.validate(measurement, bindingResult);
         if(bindingResult.hasErrors())

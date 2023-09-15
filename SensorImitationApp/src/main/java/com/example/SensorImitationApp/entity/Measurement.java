@@ -18,14 +18,14 @@ public class Measurement {
     private Long id;
 
     @Column(name = "value")
-    @NotEmpty()
+    @NotNull()
     @Min(value = -100, message = "Value can't be less -100")
     @Max(value = 100, message = "Value can't be more 100")
     private Double value;
 
     @Column(name = "raining")
-    @NotEmpty()
-    private Boolean isRaining;
+    @NotNull
+    private Boolean raining;
 
     @Column(name = "date_time")
     @NotNull
@@ -33,7 +33,7 @@ public class Measurement {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "sensor", referencedColumnName = "id")
+    @JoinColumn(name = "sensor", referencedColumnName = "name")
     private Sensor sensor;
 
     public Measurement() {
@@ -55,12 +55,11 @@ public class Measurement {
         this.value = value;
     }
 
-    public Boolean getRaining() {
-        return isRaining;
+    public Boolean isRaining() {
+        return raining;
     }
 
-    public void setRaining(Boolean raining) {
-        isRaining = raining;
+    public void setRaining(Boolean raining) {this.raining = raining;
     }
 
     public LocalDateTime getDateTime() {
